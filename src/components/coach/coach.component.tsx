@@ -1,6 +1,7 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import "./coach.component.scss";
+import { SeatComponent } from "./components/seat/seat.component";
 import { Seat } from "./models/seat";
 import { selectCoach } from "./store/coach.slice";
 
@@ -9,11 +10,7 @@ export const mapCompartment = (compartment: Seat[]) => (
 );
 
 export const mapSeat = (seat: Seat) => (
-  <div className={"seat"}>
-    <div className={"seat-item"}>
-      {seat.state} <br /> {seat.index}
-    </div>
-  </div>
+  <SeatComponent key={seat.index} index={seat.index} state={seat.state} />
 );
 
 export const CoachComponent = () => {
