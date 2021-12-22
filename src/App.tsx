@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.scss";
-import { FieldComponent } from "./components/field/field.component";
+import { CoachComponent } from "./components/coach/coach.component";
 
 function App() {
   return (
     <div className="App">
       <header></header>
       <main data-testid="main">
-        <FieldComponent></FieldComponent>
+        <CoachComponent></CoachComponent>
       </main>
       <footer></footer>
     </div>
