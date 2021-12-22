@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.scss";
 import { FieldComponent } from "./components/field/field.component";
 
