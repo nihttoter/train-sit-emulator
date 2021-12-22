@@ -1,4 +1,7 @@
 import React from "react";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { decrement, increment } from "../counter/store/counter.slice";
+import { coachMock } from "./coach.mock";
 import "./field.component.scss";
 import { Coach } from "./models/coach";
 import { Seat } from "./models/seat";
@@ -26,270 +29,28 @@ export const setIndexes = (coach: Coach) => {
 export const FieldComponent = () => {
   const indexedCoach = setIndexes(coachMock);
   const compartments = indexedCoach.compartments.map(mapCompartment);
-  return <div className="coach">{compartments}</div>;
-};
 
-export const coachMock: Coach = {
-  compartments: [
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-    [
-      {
-        state: "Free",
-      },
-      {
-        state: "Free",
-      },
-    ],
-  ],
+  const count = useAppSelector((state) => state.counter.value);
+  const dispatch = useAppDispatch();
+
+  return (
+    <div className="coach">
+      {compartments}
+      <div>
+        <button
+          aria-label="Increment value"
+          onClick={() => dispatch(increment())}
+        >
+          Increment
+        </button>
+        <span>{count}</span>
+        <button
+          aria-label="Decrement value"
+          onClick={() => dispatch(decrement())}
+        >
+          Decrement
+        </button>
+      </div>
+    </div>
+  );
 };
