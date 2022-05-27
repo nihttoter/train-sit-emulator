@@ -10,7 +10,7 @@ export const mapCompartment = (compartment: Seat[]) => (
 );
 
 export const mapSeat = (seat: Seat) => (
-  <SeatComponent key={seat.index} index={seat.index} state={seat.state} />
+  <SeatComponent key={seat.index} index={seat.index} state={seat.state} selected={seat.selected} />
 );
 
 export const CoachComponent = () => {

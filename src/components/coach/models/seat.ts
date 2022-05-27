@@ -5,4 +5,5 @@ export type Seat = {
     index?: number;
     state: SeatState;
     user?: User;
+    selected?: boolean;
 }
